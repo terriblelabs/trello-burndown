@@ -3,5 +3,11 @@
 %ul
   - board.work_by_list.each do |list, work|
     %li.list
-      .name= list.name
+      .name= list
       #{work} days (#{(work / board.total_work.to_f * 100.0)}%)
+#chart{style: 'min-width: 400px; height: 400px; margin: 0 auto;'}
+
+:javascript
+  $(function(){
+    new TrelloBurndown.BoardChart('chart', #{board.work_by_list.to_json});
+  });

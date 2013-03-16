@@ -5,7 +5,7 @@ Board = Struct.new(:board_id) do
 
   def list(list_id)
     @_lists ||= {}
-    @_lists[list_id] ||= Trello::List.find(list_id)
+    @_lists[list_id] ||= Trello::List.find(list_id).name
   end
 
   def cards_by_list
