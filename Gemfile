@@ -44,10 +44,13 @@ gem "jquery-rails"
 gem "newrelic_rpm"
 gem "pg"
 gem "redcarpet"
+gem "ruby-trello"
 gem "simple_form"
 gem "stamp"
 gem "strong_parameters"
 gem "unicorn"
+
+
 group :assets do
   gem "sass-rails", "~> 3.2.3"
   gem "coffee-rails", "~> 3.2.1"
