@@ -1,11 +1,22 @@
-%h1= board.name
-.total Total Estimated Work: #{board.total_work} days
-%ul
-  - board.work_by_list.each do |list, work|
-    %li.list
-      .name= list
-      #{work} days (#{(work / board.total_work.to_f * 100.0)}%)
-#chart{style: 'min-width: 400px; height: 400px; margin: 0 auto;'}
+- content_for :title, "#{board.name} - Trello Burndown"
+
+.row
+  %ul.breadcrumbs
+    %li= link_to "Boards", boards_path
+    %li.current= link_to board.name, "#"
+
+.row
+  %h2.subheader= board.name
+
+  .total-work
+    %strong Total Estimated Work:
+    #{board.total_work} days
+  %ul.lists{class: "small-block-grid-#{board.work_by_list.length}"}
+    - board.work_by_list.each do |list, work|
+      %li.list
+        %strong.name= list
+        #{work} days (#{(work / board.total_work.to_f * 100.0)}%)
+  #chart{style: 'min-width: 400px; height: 400px; margin: 0 auto;'}
 
 :javascript
   $(function(){

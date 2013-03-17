@@ -14,5 +14,7 @@
 //= require jquery_ujs
 //= require highcharts/highcharts
 //= require_tree .
-//= require bootstrap
 //= require modernizr
+//= require foundation
+
+$(document).foundation();

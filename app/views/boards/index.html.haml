@@ -1,6 +1,9 @@
-%h1 Boards
+- content_for :title, "Trello Burndown"
 
-%ul
-  - boards.each do |board|
-    %li
-      = link_to board.name, board_path(board.id)
+.row
+  %h2.subheader Boards
+
+  %ul
+    - boards.each do |board|
+      %li
+        = link_to board.name, board_path(board.id)
