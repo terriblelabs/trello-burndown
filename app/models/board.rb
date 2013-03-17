@@ -46,4 +46,22 @@ class Board < ActiveRecord::Base
     end
   end
 
+  def projected_completion_series
+    results = []
+    work_remaining = total_work
+    date = board_snapshots.minimum(:date)
+
+    while work_remaining > 0
+      unless date.saturday? || date.sunday?
+        work_remaining -= 1
+      end
+      results << {
+        date: date.stamp("2013/01/13"),
+        work: work_remaining.to_i
+      }
+      date += 1.day
+    end
+    results
+  end
+
 end

@@ -9,5 +9,5 @@
 
 :javascript
   $(function(){
-    new TrelloBurndown.BoardChart('chart', #{json_for(board.board_snapshots)});
+    new TrelloBurndown.BoardChart('chart', #{json_for(board.board_snapshots)}, #{board.projected_completion_series.to_json});
   });
