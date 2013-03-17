@@ -13,7 +13,7 @@ class BoardsController < ApplicationController
   helper_method :boards
 
   def board
-    Board.new(params[:id])
+    Board.where(trello_board_id: params[:id]).first_or_create
   end
   helper_method :board
 

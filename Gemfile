@@ -49,7 +49,8 @@ gem "simple_form"
 gem "stamp"
 gem "strong_parameters"
 gem "unicorn"
-
+gem 'activerecord-postgres-hstore'
+gem 'active_model_serializers'
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"

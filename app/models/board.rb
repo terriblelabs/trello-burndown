@@ -1,4 +1,8 @@
-Board = Struct.new(:board_id) do
+class Board < ActiveRecord::Base
+
+  validates_uniqueness_of :trello_board_id
+  has_many :board_snapshots
+
   def name
     trello_board.name
   end
@@ -17,7 +21,7 @@ Board = Struct.new(:board_id) do
   end
 
   def trello_board
-    @_trello_board ||= Trello::Board.find board_id
+    @_trello_board ||= Trello::Board.find trello_board_id
   end
 
   def work(card)
@@ -34,6 +38,12 @@ Board = Struct.new(:board_id) do
     Hash[cards_by_list.map do |list, cards|
       [list, cards.map{|c| work(c) }.sum]
     end]
+  end
+
+  def take_snapshot
+    board_snapshots.where(date: Date.today).first_or_create do |snapshot|
+      snapshot.lists = work_by_list
+    end
   end
 
 end

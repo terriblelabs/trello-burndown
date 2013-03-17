@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Board do
   let(:board_id) { 1 }
-  let(:board) { Board.new(board_id) }
+  let(:board) { Board.new(trello_board_id: board_id) }
 
   describe "totaling the estimated work" do
     it "sums the estimated work from all cards" do
