@@ -52,6 +52,7 @@ gem "unicorn"
 gem 'activerecord-postgres-hstore'
 gem 'active_model_serializers'
 gem 'omniauth-github'
+gem 'github_api'
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"

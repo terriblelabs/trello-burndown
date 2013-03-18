@@ -1,2 +1,5 @@
+- content_for :title, "Sign In - Trello Burndown"
+
 .row
-  = link_to "Sign in with GitHub", user_omniauth_authorize_path(:github)
+  .large-12.columns
+    = link_to "Sign in with GitHub", user_omniauth_authorize_path(:github), class: 'button'
