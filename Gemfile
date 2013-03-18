@@ -51,6 +51,7 @@ gem "strong_parameters"
 gem "unicorn"
 gem 'activerecord-postgres-hstore'
 gem 'active_model_serializers'
+gem 'omniauth-github'
 
 group :assets do
   gem "sass-rails", "~> 3.2.3"

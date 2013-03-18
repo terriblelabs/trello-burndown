@@ -24,6 +24,13 @@
 
 %body{ body_attributes }
   .row
-    %h1 Trello Burndown
+    .large-8.columns
+      %h1 Trello Burndown
+    .large-4.columns.user-links
+      - if user_signed_in?
+        Welcome back, #{current_user.username} 
+        \|
+        = link_to "Logout", destroy_user_session_path, method: :delete
+
   = yield
 

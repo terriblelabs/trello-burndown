@@ -1,9 +1,10 @@
 - content_for :title, "Trello Burndown"
 
 .row
-  %h2.subheader Boards
+  .columns.large-12
+    %h2.subheader Boards
 
-  %ul
-    - boards.each do |board|
-      %li
-        = link_to board.name, board_path(board.id)
+    %ul
+      - boards.each do |board|
+        %li
+          = link_to board.name, board_path(board.id)
