@@ -53,12 +53,12 @@ class Board < ActiveRecord::Base
 
     while work_remaining > 0
       unless date.saturday? || date.sunday?
-        work_remaining -= 1
+        work_remaining -= (1 * development_factor)
+        results << {
+          date: date.stamp("2013/01/13"),
+          work: work_remaining.to_f
+        }
       end
-      results << {
-        date: date.stamp("2013/01/13"),
-        work: work_remaining.to_i
-      }
       date += 1.day
     end
     results
