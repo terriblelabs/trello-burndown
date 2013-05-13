@@ -17,7 +17,7 @@
       - board.work_by_list.each do |list, work|
         %li.list
           %strong.name= list
-          #{work} days (#{(work / board.total_work.to_f * 100.0)}%)
+          #{work} days (#{number_with_precision(work / board.total_work.to_f * 100.0, precision: 1)}%)
     #chart{style: 'min-width: 400px; height: 400px; margin: 0 auto;'}
 
 :javascript
