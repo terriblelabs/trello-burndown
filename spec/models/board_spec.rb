@@ -40,6 +40,11 @@ describe Board do
       board.work(card).should == 1
     end
 
+    it "return fractional days" do
+      card = OpenStruct.new(name: "[0.5] Some work")
+      board.work(card).should == 0.5
+    end
+
     it "returns 0 if no estimate in brackets is found" do
       card = OpenStruct.new(name: "Moar work")
       board.work(card).should == 0

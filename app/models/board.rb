@@ -25,9 +25,9 @@ class Board < ActiveRecord::Base
   end
 
   def work(card)
-    match = card.name.match(/\[(\d+)\]/)
+    match = card.name.match(/\[(\d+(\.\d+)?)\]/)
     return 0 unless match
-    match[1].to_i
+    match[1].to_f
   end
 
   def total_work
