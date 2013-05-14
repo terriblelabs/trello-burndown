@@ -3,6 +3,8 @@ class Board < ActiveRecord::Base
   validates_uniqueness_of :trello_board_id
   has_many :board_snapshots
 
+  DEFAULT_REMAINING_LIST_NAME = "To Do"
+
   def name
     trello_board.name
   end
@@ -46,10 +48,14 @@ class Board < ActiveRecord::Base
     end
   end
 
+  def remaining_work
+    work_by_list[DEFAULT_REMAINING_LIST_NAME]
+  end
+
   def projected_completion_series
     results = []
-    work_remaining = total_work
-    date = board_snapshots.minimum(:date)
+    work_remaining = remaining_work
+    date = Date.current
 
     while work_remaining > 0
       unless date.saturday? || date.sunday?
