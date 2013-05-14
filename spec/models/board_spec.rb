@@ -67,6 +67,15 @@ describe Board do
       ]
       board.remaining_work.should == 5
     end
+
+    it "uses the work in the custom list if set" do
+      board.stub(:cards).and_return [
+        OpenStruct.new(name: "[5] Some work", list_id: "Please Do This Stuff"),
+        OpenStruct.new(name: "[2] Extra work", list_id: "Done"),
+      ]
+      board.remaining_list_name = "Please Do This Stuff"
+      board.remaining_work.should == 5
+    end
   end
 
   describe "projecting the remaining work" do

@@ -48,8 +48,12 @@ class Board < ActiveRecord::Base
     end
   end
 
+  def remaining_list_name
+    attributes['remaining_list_name'] || DEFAULT_REMAINING_LIST_NAME
+  end
+
   def remaining_work
-    work_by_list[DEFAULT_REMAINING_LIST_NAME]
+    work_by_list[remaining_list_name]
   end
 
   def projected_completion_series

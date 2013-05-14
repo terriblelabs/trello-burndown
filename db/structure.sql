@@ -84,7 +84,9 @@ CREATE TABLE boards (
     trello_board_id character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    development_factor double precision DEFAULT 1.0
+    development_factor double precision DEFAULT 1.0,
+    remaining_list_name character varying(255),
+    end_date date
 );
 
 
@@ -253,3 +255,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130317005101');
 INSERT INTO schema_migrations (version) VALUES ('20130318005625');
 
 INSERT INTO schema_migrations (version) VALUES ('20130513193305');
+
+INSERT INTO schema_migrations (version) VALUES ('20130514004751');
