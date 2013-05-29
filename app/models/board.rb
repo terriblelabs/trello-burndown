@@ -58,7 +58,7 @@ class Board < ActiveRecord::Base
 
   def projected_completion_series
     results = []
-    work_remaining = remaining_work
+    work_remaining = remaining_work || 0
     date = Date.current
 
     while work_remaining > 0
